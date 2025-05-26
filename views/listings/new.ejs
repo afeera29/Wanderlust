@@ -1,0 +1,59 @@
+<%layout ("/layouts/boilerplate")%>
+<!-- since the boxes were so wide in the form ...we are going to create a row div and if our page is divided in 12 parts we only 
+ want to use 8 parts so col-8 and to make an offset which means space from the left, we use offset-2-->
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <br/><br/>
+        <h3> Create a new listing</h3>
+        <form method ="POST" action ="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+            <!-- here non validate is to remove the default browser styling for the validations and to make it boostrap ka -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="listing[title]" placeholder="enter title" type="text" class=" form-control" required/>
+                <div class="valid-feedback">
+                    Title looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input name="listing[description]" type="text" class=" form-control"required />
+                <div class="invalid-feedback">Please enter a short description</div>
+            </div>
+        
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Listing image</label>
+                <input name="listing[image]" type="file" class="form-control" required/>
+                
+            </div>
+            <!-- both price and country will come in the same line if they are added in class row wala div
+             and then add col size 4 and 8and before that it shoukd occuoy one row each as in before md sixe of the screen 
+             and the div with class valid feedback is to display the success and failure message of the form inputs -->
+            <div class="row"> 
+                <div class="mb-3 col-md-4" >
+                    <label for="price" class="form-label">Price</label>
+                    <input name="listing[price]" placeholder="enter price" type="number" class="form-control" required/>
+                    <div class="invalid-feedback">Price should be valid</div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required/>
+                    <div class="invalid-feedback">country should be valid</div>
+                </div>
+            </div>
+           
+            
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input name="listing[location]" placeholder="enter location" type="text" class="form-control" required/>
+                <div class="invalid-feedback">location should be valid</div>
+            </div>
+<!--
+            here just writing required will make it a necessary input in the form but then the messaqges and the type of the message displayed will always be different
+            depending on the browser...google ...safari will show two diff things
+            so to make it standardized we are gonna use bootstrap-->
+            <button class="btn btn-dark add-btn mt-3">
+                Add
+            </button>
+        </form>
+    </div>   
+</div>
